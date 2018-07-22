@@ -1,8 +1,6 @@
 
 import control.ControllerOrdenacao;
 import control.InsertionSort;
-import model.No;
-
 /**
  *
  * @author marti

@@ -3,8 +3,6 @@ package control;
 
 import java.util.List;
 import model.AlgoritmoDeOrdenacao;
-import model.Lista;
-import model.No;
 
 /**
  * @author marti
@@ -24,18 +22,6 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
     {
         
         return this.lista;
-    }
-
-    private void avancar(No auxiliar, No pivo)
-    {
-        auxiliar = pivo;
-        pivo = pivo.getNoPosterior();
-    }
-
-    private void ordenarValor(No auxiliar, No pivo) 
-    {
-        
-            
     }
     
     
