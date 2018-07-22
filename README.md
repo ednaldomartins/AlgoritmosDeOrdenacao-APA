@@ -1,4 +1,4 @@
-# AlgoritmosDeOrdenacao_APA
+			# AlgoritmosDeOrdenacao_APA
 
 UNIVERSIDADE FEDERAL DA PARAÍBA
 CENTRO DE INFORMÁTICA
@@ -9,5 +9,5 @@ Entrega da atividade : 26/07/2018 até as 15:00
 Ordenação por Comparação 1
 
 Implemente os seguintes algoritmos de ordenação:
-● Selection sort: Wikipedia (​en​ | ​pt​), YouTube (​en​), Khan Academy (​pt​)
-● Insertion sort: Wikipedia (​en​ | ​pt​), YouTube (​en​), Khan Academy (​en​)
+● Selection sort
+● Insertion sort
