@@ -14,8 +14,8 @@ import model.AlgoritmoDeOrdenacao;
  *  date: 21.07.2018
  */
 public class ControllerOrdenacao {
-    private List listaOrdenada;
-    private List listaDesordenada;
+    private LinkedList listaOrdenada;
+    private LinkedList listaDesordenada;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
     private final String ARQUIVO_DESTINO = "..\\AlgoritmosDeOrdenacao\\listaOrdenada.txt";
 
@@ -30,7 +30,7 @@ public class ControllerOrdenacao {
     ***************************************************************************/
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
-        listaOrdenada = new LinkedList<>();
+        listaOrdenada = new LinkedList<Integer>();
         listaOrdenada = algoritmoDeOrdenacao.ordenar(listaDesordenada);
     }
     
@@ -43,8 +43,9 @@ public class ControllerOrdenacao {
     *   Metodos para retornar Lista do Arquivo e para salvar Lista no Arquivo *
     *   Geralmente serão usados caso seja necessário fazer uma chamada direta *
     *   na main.                                                              *  
+     * @return 
     ***************************************************************************/
-    public List carregarListaArquivo ()  
+    public LinkedList carregarListaArquivo ()  
     {
         try {
             return new Arquivo(ARQUIVO_ORIGEM).carregarLista();

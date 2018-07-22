@@ -15,7 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedList;
-import java.util.List;
+
 /**
  * @author marti
  *  date: 20.07.2018
@@ -50,8 +50,8 @@ public class Arquivo {
     
     
     
-    public List carregarLista() throws IOException {
-        List numeros = new LinkedList();
+    public LinkedList carregarLista() throws IOException {
+        LinkedList numeros = new LinkedList();
         try (BufferedReader reader = Files.newBufferedReader(savePath, utf8)){            
             String linha = null;
             while( (linha = reader.readLine()) != null) {
