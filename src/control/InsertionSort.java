@@ -10,18 +10,30 @@ import model.AlgoritmoDeOrdenacao;
  */
 public class InsertionSort implements AlgoritmoDeOrdenacao{
 
-    private List lista;
-    
-    public InsertionSort(List lista) 
-    {
-        this.lista = lista;
-    }
-
+//    private List lista;
+//    
+//    public InsertionSort(List lista) 
+//    {
+//        this.lista = lista;
+//    }
+//    
+//    public InsertionSort() 
+//    {
+//        
+//    }
+//
+//    @Override
+//    public List ordenar()
+//    {
+//        
+//        return this.lista;
+//    }
+//    
     @Override
-    public List ordenar()
+    public List ordenar(List lista)
     {
         
-        return this.lista;
+        return lista;
     }
     
     

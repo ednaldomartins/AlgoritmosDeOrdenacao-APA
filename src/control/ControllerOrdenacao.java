@@ -15,12 +15,13 @@ import model.AlgoritmoDeOrdenacao;
  */
 public class ControllerOrdenacao {
     private List listaOrdenada;
+    private List listaDesordenada;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
     private final String ARQUIVO_DESTINO = "..\\AlgoritmosDeOrdenacao\\listaOrdenada.txt";
 
     public ControllerOrdenacao()
     {
-        listaOrdenada = new LinkedList<>();
+        this.listaDesordenada = carregarListaArquivo();
     }
 
     /**************************************************************************
@@ -29,7 +30,8 @@ public class ControllerOrdenacao {
     ***************************************************************************/
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
-        listaOrdenada = algoritmoDeOrdenacao.ordenar();
+        listaOrdenada = new LinkedList<>();
+        listaOrdenada = algoritmoDeOrdenacao.ordenar(listaDesordenada);
     }
     
     public List getListaOrdenada() {

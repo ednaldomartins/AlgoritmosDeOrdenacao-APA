@@ -9,5 +9,5 @@ import java.util.List;
  *  date: 21.07.2018
  */
 public interface AlgoritmoDeOrdenacao {
-    public List ordenar ();
+    public List ordenar (List list);
 }
