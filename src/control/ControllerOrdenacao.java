@@ -30,8 +30,8 @@ public class ControllerOrdenacao {
     ***************************************************************************/
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
-        listaOrdenada = new LinkedList<Integer>();
-        listaOrdenada = algoritmoDeOrdenacao.ordenar(listaDesordenada);
+        listaOrdenada = new LinkedList<Integer>(listaDesordenada);
+        algoritmoDeOrdenacao.ordenar(listaOrdenada);
     }
     
     public List getListaOrdenada() {

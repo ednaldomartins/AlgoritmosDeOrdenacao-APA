@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package infra;
 
 import java.io.BufferedReader;
@@ -47,7 +43,6 @@ public class Arquivo {
             System.out.println("SALVAMENTO CONCLUIDO");
         }
     }
-    
     
     
     public LinkedList carregarLista() throws IOException {
