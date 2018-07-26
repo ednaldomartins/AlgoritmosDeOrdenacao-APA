@@ -21,17 +21,15 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
     public LinkedList ordenar(LinkedList<Integer> lista)
     {
         //busca enquanto nao chegar no fim da lista
-        for(int i = 1; i < lista.size(); i++)
+        int tamanhoLista = lista.size();
+        for(int i = 1; i < tamanhoLista; i++)
         {
             int j = i-1;
             //pivo < anterior ?
             if( lista.get(i) < lista.get(j) ) 
             {
                 //colocar a verificacao do j>=0 antes, para nao dar NullPointer
-                while(j>=0 && (lista.get(i) < lista.get(j))) 
-                {
-                    j--;
-                }
+                for(;j>=0 && (lista.get(i) < lista.get(j)); j-- );
                 //retira o menor da posicao atual e adciona na posicao do pivo, empurrando o pivo pra frente.
                 lista.add(j+1, lista.remove(i));
             } 

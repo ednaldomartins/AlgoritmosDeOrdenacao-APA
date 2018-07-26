@@ -20,13 +20,14 @@ public class SelectionSort implements AlgoritmoDeOrdenacao{
     @Override
     public LinkedList ordenar(LinkedList<Integer> lista)
     {
-        for(int i = 0; i < lista.size() ; i++) 
+        int tamanhoLista = lista.size();
+        for(int i = 0; i < tamanhoLista ; i++) 
         {
             //caso tenha que haver troca, entao true pra o ultimo IF
             boolean troca = false;
             //k (pivo)
             int k = i;
-            for(int j = i+1; j < lista.size(); j++) 
+            for(int j = i+1; j < tamanhoLista; j++) 
             {
                 if (lista.get(j) < lista.get(k))
                 {
