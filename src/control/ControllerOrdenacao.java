@@ -3,7 +3,6 @@ package control;
 
 import infra.Arquivo;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,8 +13,9 @@ import model.AlgoritmoDeOrdenacao;
  *  date: 21.07.2018
  */
 public class ControllerOrdenacao {
-    private LinkedList listaOrdenada;
-    private LinkedList listaDesordenada;
+    private List listaOrdenada;
+    private List listaDesordenada;
+    private double tempoDeOrdenacao;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
     private final String ARQUIVO_DESTINO = "..\\AlgoritmosDeOrdenacao\\listaOrdenada.txt";
 
@@ -26,16 +26,26 @@ public class ControllerOrdenacao {
 
     /**************************************************************************
     *   Esse metodo usa a Interface AlgoritmoDeOrdenacao para receber um tipo *
-    *   da dessa Interface e ordenar de acordo com o Objeto recebido.         *  
+    *   dessa Interface e ordenar de acordo com o Objeto recebido.            *  
+    *   @param algoritmoDeOrdenacao                                           *
+    *   @param list                                                           *
     ***************************************************************************/
-    public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
+    public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao, List list)
     {
-        listaOrdenada = new LinkedList<Integer>(listaDesordenada);
-        algoritmoDeOrdenacao.ordenar(listaOrdenada);
+        double tempoInicial = System.currentTimeMillis();
+        list = listaDesordenada;        
+        listaOrdenada = ( algoritmoDeOrdenacao.ordenar(list) );
+        this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
+        //CORRIGIR ERRO Q TA DEIXANDO A LISTA DESORDENADA, ORDENADA.
+        listaDesordenada = carregarListaArquivo();
     }
     
     public List getListaOrdenada() {
-        return listaOrdenada;
+        return this.listaOrdenada;
+    }
+    
+    public double getTempoDeOrdenacao (){
+        return this.tempoDeOrdenacao;
     }
     
     
@@ -43,9 +53,9 @@ public class ControllerOrdenacao {
     *   Metodos para retornar Lista do Arquivo e para salvar Lista no Arquivo *
     *   Geralmente serão usados caso seja necessário fazer uma chamada direta *
     *   na main.                                                              *  
-     * @return 
+    *   @return                                                               * 
     ***************************************************************************/
-    public LinkedList carregarListaArquivo ()  
+    public List carregarListaArquivo ()  
     {
         try {
             return new Arquivo(ARQUIVO_ORIGEM).carregarLista();
@@ -58,13 +68,11 @@ public class ControllerOrdenacao {
     public void salvarListaArquivo (List numeros)  
     {
         try {
-            new Arquivo(ARQUIVO_DESTINO).salvarLista((LinkedList<Integer>) numeros);
+            new Arquivo(ARQUIVO_DESTINO).salvarLista( (List<Long>) numeros);
         } catch (IOException ex) {
             Logger.getLogger(ControllerOrdenacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
+  
     
 }
