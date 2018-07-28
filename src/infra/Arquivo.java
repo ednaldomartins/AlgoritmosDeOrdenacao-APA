@@ -10,7 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author marti
@@ -25,11 +26,11 @@ public class Arquivo {
         this.savePath = Paths.get(savePath);
     }
     
-    public void salvarLista (LinkedList<Integer> numeros) throws IOException {
+    public void salvarLista (List<Long> numeros) throws IOException {
         BufferedWriter writer = null;
         try {
             writer = Files.newBufferedWriter(savePath, utf8);
-            for(Integer numero:numeros) {
+            for(Long numero:numeros) {
                 writer.write(numero + "\r\n");
             }
             writer.flush();
@@ -45,12 +46,12 @@ public class Arquivo {
     }
     
     
-    public LinkedList carregarLista() throws IOException {
-        LinkedList numeros = new LinkedList();
+    public List carregarLista() throws IOException {
+        List numeros = new ArrayList<Long>();
         try (BufferedReader reader = Files.newBufferedReader(savePath, utf8)){            
             String linha = null;
             while( (linha = reader.readLine()) != null) {
-                numeros.add( Integer.parseInt(linha) );
+                numeros.add( Long.parseLong(linha) );
             }
             reader.close();         
         }

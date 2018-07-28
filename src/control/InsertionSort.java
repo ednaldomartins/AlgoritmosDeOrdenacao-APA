@@ -1,7 +1,7 @@
 
 package control;
 
-import java.util.LinkedList;
+import java.util.List;
 import model.AlgoritmoDeOrdenacao;
 
 /**
@@ -18,7 +18,7 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
      * @return lista ordenada                                                  *
      **************************************************************************/
     @Override
-    public LinkedList ordenar(LinkedList<Integer> lista)
+    public List<Long> ordenar(List<Long> lista)
     {
         //busca enquanto nao chegar no fim da lista
         int tamanhoLista = lista.size();
@@ -33,6 +33,7 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
                 //retira o menor da posicao atual e adciona na posicao do pivo, empurrando o pivo pra frente.
                 lista.add(j+1, lista.remove(i));
             } 
+            
         }
         return lista;
     }

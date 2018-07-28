@@ -1,7 +1,7 @@
 
 package control;
 
-import java.util.LinkedList;
+import java.util.List;
 import model.AlgoritmoDeOrdenacao;
 
 /**
@@ -18,13 +18,11 @@ public class SelectionSort implements AlgoritmoDeOrdenacao{
      * @return lista ordenada                                                  *
      **************************************************************************/
     @Override
-    public LinkedList ordenar(LinkedList<Integer> lista)
+    public List<Long> ordenar(List<Long> lista)
     {
         int tamanhoLista = lista.size();
         for(int i = 0; i < tamanhoLista ; i++) 
         {
-            //caso tenha que haver troca, entao true pra o ultimo IF
-            boolean troca = false;
             //k (pivo)
             int k = i;
             for(int j = i+1; j < tamanhoLista; j++) 
@@ -33,11 +31,10 @@ public class SelectionSort implements AlgoritmoDeOrdenacao{
                 {
                     //novo pivo eh quem estah na posicao j atual.
                     k = j;
-                    troca = true;
                 }
             }
             
-            if (troca)
+            if (k != i)
             {
                 //adicionando na nova posicao, quem estou removendo da anterior
                 lista.add(i, lista.remove(k));
