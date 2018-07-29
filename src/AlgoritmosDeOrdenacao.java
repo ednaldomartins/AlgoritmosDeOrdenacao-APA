@@ -1,7 +1,7 @@
 
 import control.ControllerOrdenacao;
-import control.InsertionSort;
-import control.SelectionSort;
+import model.InsertionSort;
+import model.SelectionSort;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
