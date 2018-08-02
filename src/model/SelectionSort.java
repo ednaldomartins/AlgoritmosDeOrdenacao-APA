@@ -2,7 +2,6 @@
 package model;
 
 import java.util.List;
-import model.AlgoritmoDeOrdenacao;
 
 /**
  * @author marti

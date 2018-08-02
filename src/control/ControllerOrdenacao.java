@@ -14,7 +14,7 @@ import model.AlgoritmoDeOrdenacao;
  */
 public class ControllerOrdenacao {
     private List listaOrdenada;
-    private List listaDesordenada;
+    private final List listaDesordenada;
     private double tempoDeOrdenacao;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
     private final String ARQUIVO_DESTINO = "..\\AlgoritmosDeOrdenacao\\listaOrdenada.txt";
@@ -33,11 +33,9 @@ public class ControllerOrdenacao {
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao, List list)
     {
         double tempoInicial = System.currentTimeMillis();
-        list = listaDesordenada;        
+        list.addAll(listaDesordenada);
         listaOrdenada = ( algoritmoDeOrdenacao.ordenar(list) );
         this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
-        //CORRIGIR ERRO Q TA DEIXANDO A LISTA DESORDENADA, ORDENADA.
-        listaDesordenada = carregarListaArquivo();
     }
     
     public List getListaOrdenada() {

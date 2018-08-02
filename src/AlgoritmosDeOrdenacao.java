@@ -4,7 +4,6 @@ import model.InsertionSort;
 import model.SelectionSort;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -26,8 +25,6 @@ public class AlgoritmosDeOrdenacao {
          */   
         int opcao;
         do{
-            
-
             System.out.println("Escolha a Opcao abaixo: \n"
                     + "1. Insertion Sort com ArrayList \n"
                     + "2. Insertion Sort com LinkedList \n"

@@ -2,7 +2,6 @@
 package model;
 
 import java.util.List;
-import model.AlgoritmoDeOrdenacao;
 
 /**
  * @author marti
@@ -29,7 +28,7 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
             if( lista.get(i) < lista.get(j) ) 
             {
                 //colocar a verificacao do j>=0 antes, para nao dar NullPointer
-                for(;j>=0 && (lista.get(i) < lista.get(j)); j-- );
+                for(;j>=0 && (lista.get(i) < lista.get(j)); j-- ){}
                 //retira o menor da posicao atual e adciona na posicao do pivo, empurrando o pivo pra frente.
                 lista.add(j+1, lista.remove(i));
             } 
