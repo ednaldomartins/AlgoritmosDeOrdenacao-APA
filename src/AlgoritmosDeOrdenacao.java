@@ -5,6 +5,7 @@ import model.SelectionSort;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import model.MergeSort;
 
 /**
  * @author marti
@@ -30,6 +31,7 @@ public class AlgoritmosDeOrdenacao {
                     + "2. Insertion Sort com LinkedList \n"
                     + "3. Selection Sort com ArrayList \n"
                     + "4. Selection Sort com LinkedList \n"
+                    + "5. Merge \n"
                     + "0. Sair \n\n");
             Scanner entrada = new Scanner(System.in);
             opcao = entrada.nextInt();
@@ -52,7 +54,12 @@ public class AlgoritmosDeOrdenacao {
                     control.ordenarLista( new SelectionSort(), new LinkedList() );
                     System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
-
+                    
+                case 5:
+                    control.ordenarLista(new MergeSort(), new ArrayList());
+                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    break;
+                    
                 case 0:
                     return;
 
@@ -67,6 +74,7 @@ public class AlgoritmosDeOrdenacao {
 //        });
         
         control.salvarListaArquivo(control.getListaOrdenada());
+        
     }
     
 }

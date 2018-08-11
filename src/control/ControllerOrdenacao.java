@@ -33,8 +33,8 @@ public class ControllerOrdenacao {
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao, List list)
     {
         double tempoInicial = System.currentTimeMillis();
-        list.addAll(listaDesordenada);
-        listaOrdenada = ( algoritmoDeOrdenacao.ordenar(list) );
+        list.addAll(this.listaDesordenada);
+        this.listaOrdenada = ( algoritmoDeOrdenacao.ordenar(list) );
         this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
     }
     
