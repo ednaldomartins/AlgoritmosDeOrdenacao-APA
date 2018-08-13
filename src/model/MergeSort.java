@@ -3,10 +3,10 @@ package model;
 
 import java.util.List;
 
-/**
- * @author marti
- *  date: 11.08.2018
- */
+/*******************************************************************************
+ * @author marti                                                               * 
+ *  date: 11.08.2018                                                           * 
+ *******************************************************************************/
 public class MergeSort implements AlgoritmoDeOrdenacao{
 
     @Override
@@ -84,11 +84,4 @@ public class MergeSort implements AlgoritmoDeOrdenacao{
         }
     }
     
-    private void substituirConteudo (Long[] lista, Long[] listaAuxiliar, int a, int b)
-    {
-        lista[a] = listaAuxiliar[b];
-        a++;
-        b++;
-    }
-
 }

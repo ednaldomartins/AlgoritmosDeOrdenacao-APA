@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import model.MergeSort;
+import model.QuickSort;
 
 /**
  * @author marti
@@ -31,7 +32,9 @@ public class AlgoritmosDeOrdenacao {
                     + "2. Insertion Sort com LinkedList \n"
                     + "3. Selection Sort com ArrayList \n"
                     + "4. Selection Sort com LinkedList \n"
-                    + "5. Merge \n"
+                    + "5. Merge Sort \n"
+                    + "6. Quick Sort \n"
+                    + "7. Salvar Lista Ordenada \n"
                     + "0. Sair \n\n");
             Scanner entrada = new Scanner(System.in);
             opcao = entrada.nextInt();
@@ -60,6 +63,15 @@ public class AlgoritmosDeOrdenacao {
                     System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
                     
+                case 6:
+                    control.ordenarLista(new QuickSort(), new ArrayList());
+                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    break;
+                    
+                case 7:
+                    control.salvarListaArquivo(control.getListaOrdenada());
+                    break;
+                    
                 case 0:
                     return;
 
@@ -68,12 +80,6 @@ public class AlgoritmosDeOrdenacao {
             }
 
         }while(opcao != 0);
-        
-//        control.getListaOrdenada().forEach((numero) -> {
-//            System.out.println(numero);
-//        });
-        
-        control.salvarListaArquivo(control.getListaOrdenada());
         
     }
     
