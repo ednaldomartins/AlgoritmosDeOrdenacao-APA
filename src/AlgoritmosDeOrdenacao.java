@@ -5,6 +5,7 @@ import model.SelectionSort;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import model.CountingSort;
 import model.MergeSort;
 import model.QuickSort;
 
@@ -34,7 +35,8 @@ public class AlgoritmosDeOrdenacao {
                     + "4. Selection Sort com LinkedList \n"
                     + "5. Merge Sort \n"
                     + "6. Quick Sort \n"
-                    + "7. Salvar Lista Ordenada \n"
+                    + "7. Counting Sort \n"
+                    + "8. Salvar Lista Ordenada \n"
                     + "0. Sair \n\n");
             Scanner entrada = new Scanner(System.in);
             opcao = entrada.nextInt();
@@ -67,8 +69,13 @@ public class AlgoritmosDeOrdenacao {
                     control.ordenarLista(new QuickSort(), new ArrayList());
                     System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
-                    
+                
                 case 7:
+                    control.ordenarLista(new CountingSort(), new ArrayList());
+                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    break;
+                    
+                case 8:
                     control.salvarListaArquivo(control.getListaOrdenada());
                     break;
                     
