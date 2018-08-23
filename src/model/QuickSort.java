@@ -9,6 +9,13 @@ import java.util.List;
  *******************************************************************************/
 public class QuickSort implements AlgoritmoDeOrdenacao{
 
+    /***************************************************************************
+     *  Algoritmo                   Complexidade                               *             
+     *                  Melhor          Médio           Pior                   *         
+     *  Counting Sort	O(n log n)	O(n log n)	O(n ^ 2)               *
+     * @param list                                                             *
+     * @return list ordenada                                                   *
+     **************************************************************************/
     @Override
     public List<Long> ordenar(List<Long> list) {
         int tamanhoLista = list.size();
