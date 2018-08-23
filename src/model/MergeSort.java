@@ -9,6 +9,13 @@ import java.util.List;
  *******************************************************************************/
 public class MergeSort implements AlgoritmoDeOrdenacao{
 
+    /***************************************************************************
+     *  Algoritmo                   Complexidade                               *             
+     *                  Melhor          Médio           Pior                   *         
+     *  Counting Sort	O(n log n)	O(n log n)	O(n log n)             *
+     * @param list                                                             *
+     * @return list ordenada                                                   *
+     **************************************************************************/
     @Override
     public List<Long> ordenar(List<Long> list) 
     {
