@@ -1,72 +1,61 @@
 
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author marti
- *  date: 19.08.2018
- */
+/******************************************************************************
+ * @author marti                                                              *
+ *  date: 19.08.2018                                                          * 
+ ******************************************************************************/ 
 public class CountingSort implements AlgoritmoDeOrdenacao{
 
+    /***************************************************************************
+     *  Algoritmo                    Complexidade                              *             
+     *                  Melhor  	Médio           Pior                   *
+     *  Counting Sort	O(n + k)	O(n + k)	O(n + k)               *
+     * @param list                                                             *
+     * @return list ordenada                                                   *
+     **************************************************************************/
     @Override
-    public List<Long> ordenar(List<Long> list) 
+    public List ordenar (List<Long> list) 
     {
         int i, f = list.size();
-        long menor = Long.MAX_VALUE, maior = Long.MIN_VALUE;
-        List <Long> positiveList = new ArrayList();
+        int menor = Integer.MAX_VALUE, maior = Integer.MIN_VALUE;
+        //encontrando o maior e o menor numero do array
         for(i = 0; i < f; i++)
         {
-            //descobrindo o maior e o menor numero do array
-            if (list.get(i) >= 0)
-            {
-                if(list.get(i) < menor)
-                {
-                    menor = list.get(i);
-                }
-                if(list.get(i) > maior)
-                {
-                    maior = list.get(i);
-                }
-                positiveList.add(list.get(i));
-            }
+            if(list.get(i) < menor )
+                menor = list.get(i).intValue();
+            if(list.get(i) > maior)
+                maior = list.get(i).intValue();
         }
-        //definindo o tamanho de acordo com o maior
-        int [] countList = new int [(int)maior + 1];
-        //atribuindo 0 aos indices
-        for(i = 0; i < maior; i++)
+        //calculando amplitude do vetor, do positivo ao negativo
+        int amplitudeNegativa = (menor < 0) ? Math.abs(menor) : 0;
+        //vetor de contagem de ocorrencias
+        int [] countList = new int [ maior + amplitudeNegativa + 1];
+        for(i = 0; i < f; i++)
         {
-            countList[i] = 0;
+            countList[ list.get(i).intValue() + amplitudeNegativa ]++;
         }
-        //contando ocorrencias
-        int tamanhoArrayPositivo = positiveList.size();
-        for(i = 0; i < tamanhoArrayPositivo; i++)
-        {
-            countList[ positiveList.get(i).intValue() ]++;
-        }
-        //somando valores de ocorrencias
-        for(i = (int) menor + 1; i <= maior; i++)
-        {
+        //somando valores de ocorrencias para determinar a posicao do valor no vetor
+        //comeca a incrementar uma posicao a frente da primeira ocorrencia
+        for(i = menor + amplitudeNegativa + 1; i <= maior + amplitudeNegativa; i++)
+        {   
             countList[i] = countList[i] + countList[i-1];
         }
-        //criando lista ordenada
-        List orderedList = new ArrayList<Long>();
+        //criando o vetor ordenado
+        long [] vetorOrdenado = new long [f];
+        for(i = f-1; i >= 0; --i)
+        {   // de tras pra frente
+            int novaPosicao = --countList[ list.get(i).intValue() + amplitudeNegativa ];
+            vetorOrdenado[novaPosicao] = list.get(i);
+        }
+        //atualizando a list
+        list.clear();
         for(i = 0; i < f; i++)
-        {
-            orderedList.add(0);
-        }
-        for(i = 0; --tamanhoArrayPositivo >= i;)
-        {
-            int posicao = countList[ positiveList.get(tamanhoArrayPositivo).intValue() ] - 1;
-            orderedList.remove( posicao );
-            orderedList.add( posicao , positiveList.get(tamanhoArrayPositivo));
-            
-            //nao entendi pq decrementa
-            countList[ positiveList.get(tamanhoArrayPositivo).intValue() ]--;
-        }
+            list.add(i, vetorOrdenado[i]);
         
-        return orderedList;
+        return list;
     }
     
 }
