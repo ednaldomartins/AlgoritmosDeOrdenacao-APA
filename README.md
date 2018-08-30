@@ -27,13 +27,20 @@ Entrega da atividade : 30/08/2018 até as 15:00 Ordenação Linear e HeapSort
 
 Implemente os seguintes algoritmos de ordenação:
 
-● CountSort
+● CountingSort
+
 		Para os números naturais.
 
 ● HeapSort
+
 		Deve incluir a implementação das funções:
-		● Pai​
-		● ​FilhoEsquerdo​
-		● ​FilhoDireito
-		● ​MaxHeapify​
-		● ​BuildMaxHeap​.
+
+			● Pai
+		​
+			● ​FilhoEsquerdo​
+
+			● ​FilhoDireito
+		
+			● ​MaxHeapify​
+		
+			● ​BuildMaxHeap​
