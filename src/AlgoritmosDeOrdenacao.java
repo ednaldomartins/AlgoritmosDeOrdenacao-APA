@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import model.CountingSort;
+import model.HeapSort;
 import model.MergeSort;
 import model.QuickSort;
 
@@ -36,46 +37,52 @@ public class AlgoritmosDeOrdenacao {
                     + "5. Merge Sort \n"
                     + "6. Quick Sort \n"
                     + "7. Counting Sort \n"
-                    + "8. Salvar Lista Ordenada \n"
+                    + "8. Heap Sort \n"
+                    + "9. Salvar Lista Ordenada \n"
                     + "0. Sair \n\n");
             Scanner entrada = new Scanner(System.in);
             opcao = entrada.nextInt();
             switch(opcao) {
                 case 1:
                     control.ordenarLista( new InsertionSort(), new ArrayList() );
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);   
+                    System.out.println("o metodo InsertionSort executou em " + control.getTempoDeOrdenacao() /1000);   
                     break;
                 case 2:
                     control.ordenarLista( new InsertionSort(), new LinkedList() );
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo InsertionSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
 
                 case 3:
                     control.ordenarLista( new SelectionSort(), new ArrayList() );
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo SelectionSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
 
                 case 4:
                     control.ordenarLista( new SelectionSort(), new LinkedList() );
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo SelectionSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
                     
                 case 5:
                     control.ordenarLista(new MergeSort(), new ArrayList());
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo MergeSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
                     
                 case 6:
                     control.ordenarLista(new QuickSort(), new ArrayList());
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo QuickSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
                 
                 case 7:
                     control.ordenarLista(new CountingSort(), new ArrayList());
-                    System.out.println("o metodo executou em " + control.getTempoDeOrdenacao() /1000);
+                    System.out.println("o metodo CountingSort executou em " + control.getTempoDeOrdenacao() /1000);
+                    break;
+                   
+                case 8:
+                    control.ordenarLista(new HeapSort(), new ArrayList());
+                    System.out.println("o metodo HeapSort executou em " + control.getTempoDeOrdenacao() /1000);
                     break;
                     
-                case 8:
+                case 9:
                     control.salvarListaArquivo(control.getListaOrdenada());
                     break;
                     
