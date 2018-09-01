@@ -30,7 +30,7 @@ public class AlgoritmosDeOrdenacao {
         int opcao;
         do{
             System.out.println("Escolha a Opcao abaixo: \n"
-                    + "1. Insertion Sort com ArrayList \n"
+                    + "1. InsertionSort \n"
                     + "2. Insertion Sort com LinkedList \n"
                     + "3. Selection Sort com ArrayList \n"
                     + "4. Selection Sort com LinkedList \n"
@@ -44,7 +44,7 @@ public class AlgoritmosDeOrdenacao {
             opcao = entrada.nextInt();
             switch(opcao) {
                 case 1:
-                    control.ordenarLista( new InsertionSort(), new ArrayList() );
+                    control.ordenarLista( new InsertionSort() );
                     System.out.println("o metodo InsertionSort executou em " + control.getTempoDeOrdenacao() /1000);   
                     break;
                 case 2:
