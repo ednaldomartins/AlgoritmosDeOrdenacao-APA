@@ -21,10 +21,9 @@ public class InsertionSort implements AlgoritmoDeOrdenacao{
         {
             int j = i-1;
             long pivo = list[i];    //guardar o pivo
-            //colocar a verificacao do j>=0 antes, para nao dar NullPointer
-            for(;j >= 0 && ( pivo < list[j] ); j-- )
+            //enquanto o pivo for menor que o valor anterior
+            for(; j >= 0 && ( pivo < list[j] ); j-- )
                 list[j+1] = list[j];
-            //retira o menor da posicao atual e adciona na posicao do pivo, empurrando o pivo pra frente.
             list[j+1] = pivo;
         }
         return list;
