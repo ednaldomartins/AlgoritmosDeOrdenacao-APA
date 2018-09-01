@@ -13,10 +13,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author marti
- *  date: 20.07.2018
- */
+/*******************************************************************************
+ * @author marti                                                               *
+ *  date: 20.07.2018                                                           *
+ ******************************************************************************/
 public class Arquivo {
     private Path savePath;
     private Charset utf8 = StandardCharsets.UTF_8;
@@ -26,28 +26,26 @@ public class Arquivo {
         this.savePath = Paths.get(savePath);
     }
     
-    public void salvarLista (List<Long> numeros) throws IOException {
+    public void salvarLista (long [] numeros) throws IOException {
         BufferedWriter writer = null;
         try {
             writer = Files.newBufferedWriter(savePath, utf8);
-            for(Long numero:numeros) {
+            for(long numero:numeros)
                 writer.write(numero + "\r\n");
-            }
             writer.flush();
             
         }catch (IOException e) {
             e.printStackTrace();
         }finally {
-            if(writer != null) {
+            if(writer != null)
                 writer.close();
-            }
-            System.out.println("SALVAMENTO CONCLUIDO");
+            System.out.println("ARQUIVO DE LISTA ORDENADA SALVO");
         }
     }
     
     
-    public List carregarLista() throws IOException {
-        List numeros = new ArrayList<Long>();
+    public long [] carregarLista() throws IOException {
+        List <Long> numeros = new ArrayList<Long>();
         try (BufferedReader reader = Files.newBufferedReader(savePath, utf8)){            
             String linha = null;
             while( (linha = reader.readLine()) != null) {
@@ -62,7 +60,12 @@ public class Arquivo {
         }
         catch(NumberFormatException ex) {System.err.println("Erro de formato de numeros");}
         
-        return numeros;
+        int tamanhoLista = numeros.size();
+        long [] list = new long [tamanhoLista];
+        for(int i = 0; i < tamanhoLista; i++)
+            list[i] = numeros.get(i).longValue();
+        
+        return list;
     }
     
     
