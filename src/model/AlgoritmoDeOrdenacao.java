@@ -1,12 +1,10 @@
 
 package model;
 
-import java.util.List;
-
-/**
- * @author marti
- *  date: 21.07.2018
- */
+/*******************************************************************************
+ * @author marti                                                               *
+ *  date: 21.07.2018                                                           *
+ ******************************************************************************/
 public interface AlgoritmoDeOrdenacao {
-    public List<Long> ordenar (List<Long> list);
+    public long[] ordenar (long [] list);
 }
