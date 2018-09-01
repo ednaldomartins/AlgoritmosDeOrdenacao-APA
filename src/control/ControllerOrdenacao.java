@@ -13,8 +13,8 @@ import model.AlgoritmoDeOrdenacao;
  *  date: 21.07.2018
  */
 public class ControllerOrdenacao {
-    private List listaOrdenada;
-    private final List listaDesordenada;
+    private long [] listaOrdenada;
+    private final long [] listaDesordenada;
     private double tempoDeOrdenacao;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
     private final String ARQUIVO_DESTINO = "..\\AlgoritmosDeOrdenacao\\listaOrdenada.txt";
@@ -30,15 +30,15 @@ public class ControllerOrdenacao {
     *   @param algoritmoDeOrdenacao                                           *
     *   @param list                                                           *
     ***************************************************************************/
-    public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao, List list)
+    public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
+        
         double tempoInicial = System.currentTimeMillis();
-        list.addAll(this.listaDesordenada);
-        this.listaOrdenada = ( algoritmoDeOrdenacao.ordenar(list) );
+        algoritmoDeOrdenacao.ordenar(listaDesordenada);
         this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
     }
     
-    public List getListaOrdenada() {
+    public long[] getListaOrdenada() {
         return this.listaOrdenada;
     }
     
@@ -53,7 +53,7 @@ public class ControllerOrdenacao {
     *   na main.                                                              *  
     *   @return                                                               * 
     ***************************************************************************/
-    public List carregarListaArquivo ()  
+    public long [] carregarListaArquivo ()  
     {
         try {
             return new Arquivo(ARQUIVO_ORIGEM).carregarLista();
@@ -63,10 +63,10 @@ public class ControllerOrdenacao {
         return null;
     }
 
-    public void salvarListaArquivo (List numeros)  
+    public void salvarListaArquivo (long [] list)  
     {
         try {
-            new Arquivo(ARQUIVO_DESTINO).salvarLista( (List<Long>) numeros);
+            new Arquivo(ARQUIVO_DESTINO).salvarLista(list);
         } catch (IOException ex) {
             Logger.getLogger(ControllerOrdenacao.class.getName()).log(Level.SEVERE, null, ex);
         }
