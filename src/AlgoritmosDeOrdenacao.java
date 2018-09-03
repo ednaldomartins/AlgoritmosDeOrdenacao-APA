@@ -26,10 +26,10 @@ public class AlgoritmosDeOrdenacao {
             System.out.println("Escolha a Opcao abaixo: \n"
                     + "1. InsertionSort \n"
                     + "2. SelectionSort \n"
-                    + "3. Merge Sort \n"
-                    + "4. Quick Sort \n"
-                    + "5. Counting Sort \n"
-                    + "6. Heap Sort \n"
+                    + "3. MergeSort \n"
+                    + "4. QuickSort \n"
+                    + "5. CountingSort \n"
+                    + "6. HeapSort \n"
                     + "7. Salvar Lista Ordenada \n"
                     + "0. Sair \n\n");
             switch( opcao = entrada.nextInt() ) {
