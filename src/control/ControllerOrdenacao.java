@@ -1,17 +1,17 @@
 
 package control;
 
-import infra.Arquivo;
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import infra.Arquivo;
 import model.AlgoritmoDeOrdenacao;
 
-/**
- * @author marti
- *  date: 21.07.2018
- */
+/*******************************************************************************
+ * @author marti                                                               *
+ *  date: 21.07.2018                                                           *
+ ******************************************************************************/
 public class ControllerOrdenacao {
     private long [] listaOrdenada;
     private final long [] listaDesordenada;
@@ -24,22 +24,20 @@ public class ControllerOrdenacao {
         this.listaDesordenada = carregarListaArquivo();
     }
 
-    /**************************************************************************
-    *   Esse metodo usa a Interface AlgoritmoDeOrdenacao para receber um tipo *
-    *   dessa Interface e ordenar de acordo com o Objeto recebido.            *  
-    *   @param algoritmoDeOrdenacao                                           *
-    *   @param list                                                           *
+    /***************************************************************************
+    *   Esse metodo usa a Interface AlgoritmoDeOrdenacao para receber um tipo  *
+    *   dessa Interface e ordenar de acordo com o Objeto recebido.             *  
+    *   @param algoritmoDeOrdenacao                                            *
     ***************************************************************************/
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
-        
         double tempoInicial = System.currentTimeMillis();
         algoritmoDeOrdenacao.ordenar(listaDesordenada);
         this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
     }
     
     public long[] getListaOrdenada() {
-        return this.listaOrdenada;
+        return this.listaDesordenada;
     }
     
     public double getTempoDeOrdenacao (){
@@ -47,11 +45,11 @@ public class ControllerOrdenacao {
     }
     
     
-    /**************************************************************************
-    *   Metodos para retornar Lista do Arquivo e para salvar Lista no Arquivo *
-    *   Geralmente serão usados caso seja necessário fazer uma chamada direta *
-    *   na main.                                                              *  
-    *   @return                                                               * 
+    /***************************************************************************
+    *   Metodos para retornar Lista do Arquivo e para salvar Lista no Arquivo  *
+    *   Geralmente serão usados caso seja necessário fazer uma chamada direta  *
+    *   na main.                                                               *  
+    *   @return                                                                * 
     ***************************************************************************/
     public long [] carregarListaArquivo ()  
     {

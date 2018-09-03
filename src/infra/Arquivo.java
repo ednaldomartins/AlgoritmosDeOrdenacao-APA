@@ -27,18 +27,14 @@ public class Arquivo {
     }
     
     public void salvarLista (long [] numeros) throws IOException {
-        BufferedWriter writer = null;
-        try {
-            writer = Files.newBufferedWriter(savePath, utf8);
-            for(long numero:numeros)
-                writer.write(numero + "\r\n");
+        try (BufferedWriter writer = Files.newBufferedWriter(savePath, utf8)){
+            for(int i = 0; i < numeros.length; i++)
+                writer.write(numeros[i] + "\r\n");
             writer.flush();
             
         }catch (IOException e) {
             e.printStackTrace();
         }finally {
-            if(writer != null)
-                writer.close();
             System.out.println("ARQUIVO DE LISTA ORDENADA SALVO");
         }
     }
