@@ -52,30 +52,15 @@ public class MergeSort implements AlgoritmoDeOrdenacao{
         while(i < tamanhoInferior && s < tamanhoSuperior)
         {   //comparando valores das duas listas para atribuir valores menores primeiro
             if(listaInferior[i] <= listaSuperior[s])
-            {   
-                list[n] = listaInferior[i];
-                i++;
-            }
+                list[n++] = listaInferior[i++];     //atribuindo e incrementando
             else 
-            {
-                list[n] = listaSuperior[s];
-                s++;
-            }
-            n++;
+                list[n++] = listaSuperior[s++];     //atribuindo e incrementando
         }
         //completando vetor com os valores restantes (maiores)
         while(i < tamanhoInferior)
-        {
-            list[n] = listaInferior[i];
-            i++;
-            n++;
-        }
+            list[n++] = listaInferior[i++];     //atribuindo e incrementando
         while(s < tamanhoSuperior)
-        {
-            list[n] = listaSuperior[s];
-            s++;
-            n++;
-        }
+            list[n++] = listaSuperior[s++];     //atribuindo e incrementando
     }
     
 }
