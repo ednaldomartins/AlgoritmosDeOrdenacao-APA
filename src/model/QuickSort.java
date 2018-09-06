@@ -6,13 +6,13 @@ import util.FuncoesLista;
 /*******************************************************************************
  * @author marti                                                               *
  *  date: 12.08.2018                                                           *
- *******************************************************************************/
+ ******************************************************************************/
 public class QuickSort implements AlgoritmoDeOrdenacao{
 
     /***************************************************************************
      *  Algoritmo:      QuickSort                                              *                                              
      *  Caso:           Melhor          Médio           Pior                   *
-     *  Complexidade:   O(n log n)		O(n log n)		O(n ^ 2)               *
+     *  Complexidade:   O(n log n)      O(n log n)      O(n ^ 2)               *
      *      @param list                                                        *
      *      @return list ordenada                                              *
      **************************************************************************/
