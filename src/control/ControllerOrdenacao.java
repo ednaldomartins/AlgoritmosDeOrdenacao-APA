@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import infra.Arquivo;
 import model.AlgoritmoDeOrdenacao;
+import util.FuncoesLista;
 
 /*******************************************************************************
  * @author marti                                                               *
@@ -22,6 +23,7 @@ public class ControllerOrdenacao {
     public ControllerOrdenacao()
     {
         this.listaDesordenada = carregarListaArquivo();
+        this.listaOrdenada = new long[listaDesordenada.length];
     }
 
     /***************************************************************************
@@ -31,13 +33,14 @@ public class ControllerOrdenacao {
     ***************************************************************************/
     public void ordenarLista (AlgoritmoDeOrdenacao algoritmoDeOrdenacao)
     {
+        FuncoesLista.copiarLista(listaDesordenada, listaOrdenada);
         double tempoInicial = System.currentTimeMillis();
-        algoritmoDeOrdenacao.ordenar(listaDesordenada);
+        algoritmoDeOrdenacao.ordenar(listaOrdenada);
         this.tempoDeOrdenacao = System.currentTimeMillis() - tempoInicial;
     }
     
     public long[] getListaOrdenada() {
-        return this.listaDesordenada;
+        return this.listaOrdenada;
     }
     
     public double getTempoDeOrdenacao (){
